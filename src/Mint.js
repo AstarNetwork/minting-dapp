@@ -274,7 +274,7 @@ const Mint = () => {
                 </s.TextDescription>
                 <s.SpacerSmall />
                 <StyledButton
-                  disabled={!CAN_MINT}
+                  disabled={true/*!CAN_MINT*/}
                   onClick={(e) => {
                     e.preventDefault();
                     dispatch(connect());
