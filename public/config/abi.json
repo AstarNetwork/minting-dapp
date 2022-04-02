@@ -115,6 +115,19 @@
     "type": "event"
   },
   {
+    "inputs": [],
+    "name": "ASTARBASE",
+    "outputs": [
+      {
+        "internalType": "contract IAstarBase",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -461,6 +474,19 @@
       }
     ],
     "name": "setApprovalForAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "astarBaseDeployedAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setAstarBaseAddress",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

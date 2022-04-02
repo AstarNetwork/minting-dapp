@@ -1,25 +1,25 @@
 {
-  "CONTRACT_ADDRESS": "0xCa3C13c06635A45f604a3628C7511D279A748A06",
-  "ASTARBASE_ADDRESS": "0xB50F050C9Cf804B1A3Fe21663E4f15593c3aaecc",
-  "SCAN_LINK": "https://shibuya.subscan.io/account/0xCa3C13c06635A45f604a3628C7511D279A748A06",
+  "CONTRACT_ADDRESS": "0xC26164f91eEf0360BFc3bA89296C7A9D86F5A238",
+  "ASTARBASE_ADDRESS": "0x20044438CfaF684e251d1FfC70f999291D49e9a7",
+  "SCAN_LINK": "https://shiden.subscan.io/account/0xC26164f91eEf0360BFc3bA89296C7A9D86F5A238",
   "NETWORK": {
-    "NAME": "Shibuya",
-    "SYMBOL": "SBY",
-    "ID": 81,
+    "NAME": "Shiden",
+    "SYMBOL": "SDN",
+    "ID": 336,
     "DECIMALS": 18,
-    "RPC_URL": "https://rpc.shibuya.astar.network:8545",
-    "BLOCK_EXPLORER_URL": "https://blockscout.com/shibuya"
+    "RPC_URL": "https://evm.shiden.astar.network",
+    "BLOCK_EXPLORER_URL": "https://blockscout.com/shiden"
   },
-  "NFT_NAME": "Astar NFT",
-  "SYMBOL": "TEST",
+  "NFT_NAME": "Shiden Pass",
+  "SYMBOL": "SHP",
   "MAX_SUPPLY": 10000,
-  "WEI_COST": 1000000000000000000,
-  "DISPLAY_COST": 1,
+  "WEI_COST": 10000000000000000000000,
+  "DISPLAY_COST": 10000,
   "GAS_LIMIT": 300000,
   "MARKETPLACE": "TofuNFT",
   "MARKETPLACE_LINK": "https://tofunft.com/collection/shidenpass/items",
   "SHOW_BACKGROUND": true,
   "PASS_NAME": "ShidenPass",
-  "PASS_LINK": "https://astarbase-a4922.web.app/#/",
+  "PASS_LINK": "https://shidenpass.astar.network/#/",
   "DAPPS_STAKING_LINK": "https://portal.astar.network/#/dapp-staking/discover"
 }
