@@ -620,38 +620,14 @@ interface IERC721Receiver {
     ) external returns (bytes4);
 }
 
-// File: @openzeppelin/contracts/utils/Context.sol
-pragma solidity ^0.8.0;
-
-/**
- * @dev Provides information about the current execution context, including the
- * sender of the transaction and its data. While these are generally available
- * via msg.sender and msg.data, they should not be accessed in such a direct
- * manner, since when dealing with meta-transactions the account sending and
- * paying for execution may not be the actual sender (as far as an application
- * is concerned).
- *
- * This contract is only required for intermediate, library-like contracts.
- */
-abstract contract Context {
-    function _msgSender() internal view virtual returns (address) {
-        return msg.sender;
-    }
-
-    function _msgData() internal view virtual returns (bytes calldata) {
-        return msg.data;
-    }
-}
-
 // File: @openzeppelin/contracts/token/ERC721/ERC721.sol
 pragma solidity ^0.8.0;
+
 /**
  * @dev Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including
  * the Metadata extension, but not including the Enumerable extension, which is available separately as
  * {ERC721Enumerable}.
  */
-import "./IAstarBase.sol";
-
 contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     using Address for address;
     using Strings for uint256;
@@ -661,10 +637,6 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
 
     // Token symbol
     string private _symbol;
-
-    // AstarBase contract address initialized to 0
-    IAstarBase public ASTARBASE =
-        IAstarBase(0x0000000000000000000000000000000000000000);
 
     // Mapping from token ID to owner address
     mapping(uint256 => address) private _owners;
@@ -1325,82 +1297,9 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
     }
 }
 
-// File: @openzeppelin/contracts/access/Ownable.sol
-pragma solidity ^0.8.0;
-
-/**
- * @dev Contract module which provides a basic access control mechanism, where
- * there is an account (an owner) that can be granted exclusive access to
- * specific functions.
- *
- * By default, the owner account will be the one that deploys the contract. This
- * can later be changed with {transferOwnership}.
- *
- * This module is used through inheritance. It will make available the modifier
- * `onlyOwner`, which can be applied to your functions to restrict their use to
- * the owner.
- */
-abstract contract Ownable is Context {
-    address private _owner;
-
-    event OwnershipTransferred(
-        address indexed previousOwner,
-        address indexed newOwner
-    );
-
-    /**
-     * @dev Initializes the contract setting the deployer as the initial owner.
-     */
-    constructor() {
-        _setOwner(_msgSender());
-    }
-
-    /**
-     * @dev Returns the address of the current owner.
-     */
-    function owner() public view virtual returns (address) {
-        return _owner;
-    }
-
-    /**
-     * @dev Throws if called by any account other than the owner.
-     */
-    modifier onlyOwner() {
-        require(owner() == _msgSender(), "Ownable: caller is not the owner");
-        _;
-    }
-
-    /**
-     * @dev Leaves the contract without owner. It will not be possible to call
-     * `onlyOwner` functions anymore. Can only be called by the current owner.
-     *
-     * NOTE: Renouncing ownership will leave the contract without an owner,
-     * thereby removing any functionality that is only available to the owner.
-     */
-    function renounceOwnership() public virtual onlyOwner {
-        _setOwner(address(0));
-    }
-
-    /**
-     * @dev Transfers ownership of the contract to a new account (`newOwner`).
-     * Can only be called by the current owner.
-     */
-    function transferOwnership(address newOwner) public virtual onlyOwner {
-        require(
-            newOwner != address(0),
-            "Ownable: new owner is the zero address"
-        );
-        _setOwner(newOwner);
-    }
-
-    function _setOwner(address newOwner) private {
-        address oldOwner = _owner;
-        _owner = newOwner;
-        emit OwnershipTransferred(oldOwner, newOwner);
-    }
-}
 
 pragma solidity >=0.7.0 <0.9.0;
+import "./AstarBase_flat.sol";
 
 contract ShidenPass is ERC721Enumerable, Ownable {
     using Strings for uint256;
@@ -1408,11 +1307,12 @@ contract ShidenPass is ERC721Enumerable, Ownable {
     string baseURI = "";
     string public baseExtension = ".json";
     uint256 public cost = 1 ether;
-    uint256 public maxSupply = 5000;
+    uint256 public maxSupply = 7777;
     uint256 public maxMintAmount = 1;
     bool public paused = true;
     bool public revealed = true;
     string public notRevealedUri;
+    AstarBase public ASTARBASE = AstarBase(0x20044438CfaF684e251d1FfC70f999291D49e9a7);
 
     constructor(
         string memory _name,
@@ -1432,10 +1332,10 @@ contract ShidenPass is ERC721Enumerable, Ownable {
         uint256 supply = totalSupply();
         require(!paused, "The contract is paused");
         require(_mintAmount > 0, "Mint amount is 0");
-        require(_mintAmount <= maxMintAmount, "Max mint is exceeded");
         require(supply + _mintAmount <= maxSupply, "End of supply");
 
         if (msg.sender != owner()) {
+            require(_mintAmount <= maxMintAmount, "Max mint is exceeded");
             require(
                 balanceOf(msg.sender) + _mintAmount <= maxMintAmount,
                 "You have already minted"
@@ -1449,7 +1349,9 @@ contract ShidenPass is ERC721Enumerable, Ownable {
             }
         }
 
-        _safeMint(msg.sender, supply + 1);
+        for (uint256 i = 1; i <= _mintAmount; i++) {
+            _safeMint(msg.sender, supply + i);
+        }
     }
 
     /// @notice this function verifies staker status by using caller's account
@@ -1472,7 +1374,7 @@ contract ShidenPass is ERC721Enumerable, Ownable {
     }
 
     function setAstarBaseAddress(address astarBaseDeployedAddress) public {
-        ASTARBASE = IAstarBase(astarBaseDeployedAddress);
+        ASTARBASE = AstarBase(astarBaseDeployedAddress);
     }
 
     function walletOfOwner(address _owner)
