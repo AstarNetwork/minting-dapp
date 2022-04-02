@@ -101,7 +101,7 @@ const Mint = () => {
     PASS_LINK: ""
   });
   const MAX_MINT_AMOUNT = 1;
-  const CAN_MINT = true;
+  const CAN_MINT = false;
 
   const { containerProps, indicatorEl } = useLoading({
     loading: claimingNft,
@@ -274,7 +274,7 @@ const Mint = () => {
                 </s.TextDescription>
                 <s.SpacerSmall />
                 <StyledButton
-                  disabled={true/*!CAN_MINT*/}
+                  disabled={!CAN_MINT}
                   onClick={(e) => {
                     e.preventDefault();
                     dispatch(connect());
