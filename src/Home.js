@@ -142,7 +142,7 @@ const Home = () => {
         <LogoConainer>
           <img className="back" src="/config/images/mintingimage.png" />
           <div className="passLogo">
-            {blockchain.account ? (data.isPassHolder ? <img width="100" src="/config/images/shiden-pass-ok.png" /> : <img width="100" src="/config/images/shiden-pass-nok.png" />) : <img width="100" src="/config/images/shiden-pass-gray.png" />}
+            {blockchain.account ? (data.isPassHolder ? <img width="100" src="/config/images/shiden-pass-staker.png" /> : <img width="100" src="/config/images/shiden-pass-registered.png" />) : <img width="100" src="/config/images/shiden-pass-gray.png" />}
           </div>
         </LogoConainer>
         <StyledContainer>
