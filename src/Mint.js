@@ -101,7 +101,7 @@ const Mint = () => {
     PASS_LINK: ""
   });
   const MAX_MINT_AMOUNT = 1;
-  const CAN_MINT = false;
+  const CAN_MINT = true;
 
   const { containerProps, indicatorEl } = useLoading({
     loading: claimingNft,
