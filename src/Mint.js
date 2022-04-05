@@ -374,7 +374,7 @@ const Mint = () => {
             <StyledLink target={"_blank"} href={ CONFIG.DAPPS_STAKING_LINK }>
               dApps Staking
             </StyledLink>
-            &nbsp;on { CONFIG.NETWORK.NAME }
+            &nbsp;on { CONFIG.NETWORK.NAME }&nbsp;
             and you need to be registered as&nbsp;
             <StyledLink target={"_blank"} href={CONFIG.PASS_LINK}>
               {CONFIG.PASS_NAME}
