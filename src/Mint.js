@@ -122,7 +122,7 @@ const Mint = () => {
       .mint(mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
-        gasPrice: gasPrice,
+        gasPrice: String(gasPrice),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: data.isPassHolder ? 0 : totalCostWei,
