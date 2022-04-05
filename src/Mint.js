@@ -101,7 +101,7 @@ const Mint = () => {
     PASS_LINK: ""
   });
   const MAX_MINT_AMOUNT = 1;
-  const CAN_MINT = false;
+  const CAN_MINT = true;
 
   const { containerProps, indicatorEl } = useLoading({
     loading: claimingNft,
@@ -111,6 +111,7 @@ const Mint = () => {
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
+    let gasPrice = CONFIG.GAS_PRICE;
     let totalCostWei = new BN(cost.toString()).muln(mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
     console.log("Cost: ", totalCostWei, cost, mintAmount);
@@ -121,6 +122,7 @@ const Mint = () => {
       .mint(mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
+        gasPrice: gasPrice,
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: data.isPassHolder ? 0 : totalCostWei,
