@@ -18,7 +18,7 @@
   "GAS_LIMIT": 300000,
   "GAS_PRICE": 10000000000,
   "MARKETPLACE": "TofuNFT",
-  "MARKETPLACE_LINK": "https://tofunft.com/collection/shidenpass/items",
+  "MARKETPLACE_LINK": "https://tofunft.com/collection/shiden-pass/items",
   "SHOW_BACKGROUND": true,
   "PASS_NAME": "ShidenPass",
   "PASS_LINK": "https://shidenpass.astar.network/#/",
