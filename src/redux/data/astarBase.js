@@ -2,7 +2,12 @@
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
 
-export const isPassHolder = async (user) => {
+const defaultData = {
+  stakerStatus: 0,
+  isRegistered: false,
+};
+
+export const passHolder = async (user) => {
   const abiResponse = await fetch("/config/register_abi.json", {
     headers: {
       "Content-Type": "application/json",
@@ -31,14 +36,18 @@ export const isPassHolder = async (user) => {
       const stakerStatus = await smartContract.methods.checkStakerStatus(user).call();
       const isRegistered = await smartContract.methods.isRegistered(user).call();
 
-      return isRegistered && stakerStatus > 0;
+      return {
+        isRegistered,
+        stakerStatus,
+      };
+
     } catch (err) {
       console.log(err);
-      return false;
+      return defaultData;
     }
   } else {
     console.log('Install Metamask.');
   }
 
-  return false;
+  return defaultData;
 };

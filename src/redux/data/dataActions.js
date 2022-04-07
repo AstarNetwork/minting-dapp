@@ -1,6 +1,6 @@
 // log
 import store from "../store";
-import { isPassHolder } from "./astarBase";
+import { passHolder } from "./astarBase";
 
 
 const fetchDataRequest = () => {
@@ -36,13 +36,14 @@ export const fetchData = () => {
       //   .blockchain.smartContract.methods.cost()
       //   .call();
 
-      const isPassHolderResponse = await isPassHolder(store.getState().blockchain.account);
+      const { stakerStatus, isRegistered } = await passHolder(store.getState().blockchain.account);
 
       dispatch(
         fetchDataSuccess({
           totalSupply,
-          isPassHolder: isPassHolderResponse
-          // cost,
+          stakerStatus,
+          isRegistered,
+          isPassHolder: stakerStatus > 0 && isRegistered
         })
       );
     } catch (err) {

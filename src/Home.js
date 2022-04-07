@@ -124,6 +124,20 @@ const Home = () => {
   const [open, setOpen] = React.useState(false);
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
+  let image = "/config/images/shiden-pass-gray.png";
+
+  console.log(blockchain.account);
+  console.log(data);
+
+  if (blockchain.account) {
+    if (data.isRegistered) {
+      image = "/config/images/shiden-pass-registered.png";
+    }
+
+    if (data.stakerStatus > 0 && data.isRegistered) {
+      image = "/config/images/shiden-pass-staker.png";
+    }
+  }
 
   return (
     <Root>
@@ -142,7 +156,7 @@ const Home = () => {
         <LogoConainer>
           <img className="back" src="/config/images/mintingimage.png" />
           <div className="passLogo">
-            {blockchain.account ? (data.isPassHolder ? <img width="100" src="/config/images/shiden-pass-staker.png" /> : <img width="100" src="/config/images/shiden-pass-registered.png" />) : <img width="100" src="/config/images/shiden-pass-gray.png" />}
+            <img width="100" src={image} />
           </div>
         </LogoConainer>
         <StyledContainer>
