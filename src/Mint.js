@@ -110,6 +110,8 @@ const Mint = () => {
   });
   const MAX_MINT_AMOUNT = 1;
   const CAN_MINT = true;
+  // Todo: Update price
+  const price = 500;
 
   const { containerProps, indicatorEl } = useLoading({
     loading: claimingNft,
@@ -256,24 +258,52 @@ const Mint = () => {
               {data.isPassHolder ? '0' : CONFIG.DISPLAY_COST}{' '}
               {CONFIG.NETWORK.SYMBOL}.
             </s.TextTitle> */}
-            <s.TextTitle
-              style={{
-                textAlign: 'center',
-                color: 'var(--accent-text)',
-                fontSize: 14,
-                fontWeight: 400,
-                marginBottom: 10,
-              }}>
-              You have got
-            </s.TextTitle>
-            <img
-              src={logo}
-              alt="Astar pass logo"
-              style={{
-                height: 42,
-                width: 230,
-              }}
-            />
+            {data.isPassHolder ? (
+              <>
+                <s.TextTitle
+                  style={{
+                    textAlign: 'center',
+                    color: 'var(--accent-text)',
+                    fontSize: 14,
+                    fontWeight: 400,
+                    marginBottom: 10,
+                  }}>
+                  You have got
+                </s.TextTitle>
+                <img
+                  src={logo}
+                  alt="Astar pass logo"
+                  style={{
+                    height: 42,
+                    width: 230,
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <s.TextTitle
+                  style={{
+                    textAlign: 'center',
+                    color: '#F2C94C',
+                    fontSize: 14,
+                    fontWeight: 400,
+                    marginBottom: 10,
+                  }}>
+                  You don’t have AstarPass
+                </s.TextTitle>
+
+                <s.TextTitle
+                  style={{
+                    textAlign: 'center',
+                    color: 'var(--accent-text)',
+                    fontSize: 14,
+                    fontWeight: 400,
+                    marginBottom: 10,
+                  }}>
+                  1xx costs {price} ASTR (Excluding gas fees.)
+                </s.TextTitle>
+              </>
+            )}
             {/* <s.SpacerXSmall /> */}
             {/* <s.TextDescription
               style={{ textAlign: 'center', color: 'var(--accent-text)' }}>
