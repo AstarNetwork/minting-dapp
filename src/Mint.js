@@ -329,7 +329,7 @@ const Mint = () => {
                     dispatch(connect());
                     getData();
                   }}>
-                  CONNECT
+                  Connect
                 </StyledButton>
                 {blockchain.errorMsg !== '' ? (
                   <>
