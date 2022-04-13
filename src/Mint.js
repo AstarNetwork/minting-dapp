@@ -114,6 +114,8 @@ const Mint = () => {
   // Todo: Update price and ticker
   const price = 500;
   const ticker = 'XXX';
+  const isInvalidConnection =
+    blockchain.account === '' || blockchain.smartContract === null;
 
   const { containerProps, indicatorEl } = useLoading({
     loading: claimingNft,
@@ -260,7 +262,9 @@ const Mint = () => {
               {data.isPassHolder ? '0' : CONFIG.DISPLAY_COST}{' '}
               {CONFIG.NETWORK.SYMBOL}.
             </s.TextTitle> */}
-            {data.isPassHolder ? (
+            {isInvalidConnection ? (
+              <div />
+            ) : data.isPassHolder ? (
               <>
                 <s.TextTitle
                   style={{
@@ -312,7 +316,7 @@ const Mint = () => {
               Excluding gas fees.
             </s.TextDescription> */}
             {/* <s.SpacerSmall /> */}
-            {blockchain.account === '' || blockchain.smartContract === null ? (
+            {isInvalidConnection ? (
               <s.Container ai={'center'} jc={'center'}>
                 <s.TextDescription
                   style={{
