@@ -397,7 +397,7 @@ const Mint = () => {
                         ? indicatorEl
                         : data.isPassHolder
                         ? 'Mint for Free'
-                        : 'BUY'}
+                        : 'Mint'}
                     </BuyButtonContent>
                   </StyledButton>
                 </s.Container>
