@@ -110,8 +110,10 @@ const Mint = () => {
   });
   const MAX_MINT_AMOUNT = 1;
   const CAN_MINT = true;
-  // Todo: Update price
+
+  // Todo: Update price and ticker
   const price = 500;
+  const ticker = 'XXX';
 
   const { containerProps, indicatorEl } = useLoading({
     loading: claimingNft,
@@ -300,7 +302,7 @@ const Mint = () => {
                     fontWeight: 400,
                     marginBottom: 10,
                   }}>
-                  1xx costs {price} ASTR (Excluding gas fees.)
+                  1 {ticker} costs {price} ASTR (Excluding gas fees.)
                 </s.TextTitle>
               </>
             )}
