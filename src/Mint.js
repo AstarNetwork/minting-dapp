@@ -387,21 +387,35 @@ const Mint = () => {
                 </s.Container> */}
                 {/* <s.SpacerSmall /> */}
                 <s.Container ai={'center'} jc={'center'} fd={'row'}>
-                  <StyledButton
-                    disabled={claimingNft ? 1 : 0}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      claimNFTs();
-                      getData();
-                    }}>
-                    <BuyButtonContent>
-                      {claimingNft
-                        ? indicatorEl
-                        : data.isPassHolder
-                        ? 'Mint for Free'
-                        : 'Mint'}
-                    </BuyButtonContent>
-                  </StyledButton>
+                  {claimingNft ? (
+                    <div>
+                      <s.TextDescription
+                        style={{
+                          textAlign: 'center',
+                          color: 'var(--accent-text)',
+                          fontWeight: 700,
+                          fontSize: 16,
+                        }}>
+                        Minting...
+                      </s.TextDescription>
+                    </div>
+                  ) : (
+                    <StyledButton
+                      disabled={claimingNft ? 1 : 0}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        claimNFTs();
+                        getData();
+                      }}>
+                      <BuyButtonContent>
+                        {claimingNft
+                          ? indicatorEl
+                          : data.isPassHolder
+                          ? 'Mint for Free'
+                          : 'Mint'}
+                      </BuyButtonContent>
+                    </StyledButton>
+                  )}
                 </s.Container>
               </>
             )}
