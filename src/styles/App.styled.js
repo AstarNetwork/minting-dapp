@@ -18,7 +18,13 @@ export const HeaderContainer = styled.div`
 
 export const HeaderImg = styled.img`
   width: 300px;
-  margin: 0 80px;
+  @media (min-width: 768px) {
+    width: auto;
+    margin: 0 70px;
+  }
+  @media (min-width: 1500px) {
+    margin: 0 80px;
+  }
 `;
 
 export const HeaderNftImages = styled.img`
