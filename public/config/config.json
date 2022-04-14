@@ -1,26 +1,26 @@
 {
   "CONTRACT_ADDRESS": "0xC26164f91eEf0360BFc3bA89296C7A9D86F5A238",
   "ASTARBASE_ADDRESS": "0x20044438CfaF684e251d1FfC70f999291D49e9a7",
-  "SCAN_LINK": "https://shiden.subscan.io/account/0xC26164f91eEf0360BFc3bA89296C7A9D86F5A238",
+  "SCAN_LINK": "https://astar.subscan.io/account/0xC26164f91eEf0360BFc3bA89296C7A9D86F5A238",
   "NETWORK": {
-    "NAME": "Shiden",
-    "SYMBOL": "SDN",
+    "NAME": "Astar",
+    "SYMBOL": "ASTR",
     "ID": 336,
     "DECIMALS": 18,
-    "RPC_URL": "https://evm.shiden.astar.network",
-    "BLOCK_EXPLORER_URL": "https://blockscout.com/shiden"
+    "RPC_URL": "https://rpc.astar.network:8545",
+    "BLOCK_EXPLORER_URL": "https://blockscout.com/astar"
   },
-  "NFT_NAME": "Shiden Pass",
-  "SYMBOL": "SHP",
+  "NFT_NAME": "Astarnaut",
+  "SYMBOL": "ASNT",
   "MAX_SUPPLY": 7777,
   "WEI_COST": 500000000000000000000,
   "DISPLAY_COST": 500,
   "GAS_LIMIT": 300000,
   "GAS_PRICE": 10000000000,
   "MARKETPLACE": "TofuNFT",
-  "MARKETPLACE_LINK": "https://tofunft.com/collection/shiden-pass/items",
+  "MARKETPLACE_LINK": "https://tofunft.com/collection/astar-pass/items",
   "SHOW_BACKGROUND": true,
-  "PASS_NAME": "ShidenPass",
-  "PASS_LINK": "https://shidenpass.astar.network/#/",
+  "PASS_NAME": "AstarPass",
+  "PASS_LINK": "https://astarpass.astar.network/",
   "DAPPS_STAKING_LINK": "https://portal.astar.network/#/dapp-staking/discover"
 }
