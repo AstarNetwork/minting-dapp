@@ -23,7 +23,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Shiden Pass NFT</title>
+    <title>Astarnaut</title>
     <meta name="description" content="Mint your ShidenPass NFT" />
   </head>
   <body>
@@ -41,7 +41,7 @@
     -->
     <script>
       function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
+        var reveals = document.querySelectorAll('.reveal');
 
         for (var i = 0; i < reveals.length; i++) {
           var windowHeight = window.innerHeight;
@@ -49,14 +49,14 @@
           var elementVisible = 150;
 
           if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
+            reveals[i].classList.add('active');
           } else {
-            reveals[i].classList.remove("active");
+            reveals[i].classList.remove('active');
           }
         }
       }
 
-      window.addEventListener("scroll", reveal);
+      window.addEventListener('scroll', reveal);
     </script>
   </body>
 </html>
