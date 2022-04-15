@@ -133,7 +133,7 @@ const Mint = () => {
     console.log('Mint amount', mintAmount)
     console.log('Gas price: ', gasPrice);
     console.log('totalGasLimit: ', totalGasLimit);
-
+    console.log('data', data);
 
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
@@ -270,7 +270,7 @@ const Mint = () => {
             </s.TextTitle> */}
             {isInvalidConnection ? (
               <div />
-            ) : data.isPassHolder ? (
+            ) : data.isRegistered ? (
               <>
                 <s.TextTitle
                   style={{
@@ -303,19 +303,18 @@ const Mint = () => {
                   }}>
                   You don’t have AstarPass
                 </s.TextTitle>
-
-                <s.TextTitle
-                  style={{
-                    textAlign: 'center',
-                    color: 'var(--accent-text)',
-                    fontSize: 14,
-                    fontWeight: 400,
-                    marginBottom: 10,
-                  }}>
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST} {CONFIG.NETWORK.SYMBOL} (Excluding gas fees.)
-                </s.TextTitle>
               </>
             )}
+            <s.TextTitle
+              style={{
+                textAlign: 'center',
+                color: 'var(--accent-text)',
+                fontSize: 14,
+                fontWeight: 400,
+                marginBottom: 10,
+              }}>
+              1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST} {CONFIG.NETWORK.SYMBOL} (Excluding gas fees.)
+            </s.TextTitle>
             {/* <s.SpacerXSmall /> */}
             {/* <s.TextDescription
               style={{ textAlign: 'center', color: 'var(--accent-text)' }}>
