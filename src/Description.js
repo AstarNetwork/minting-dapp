@@ -20,13 +20,22 @@ const Description = () => {
         <RowDescription>
           <TextDescription>
             To claim one free NFT you need to be an active staker in{' '}
-            <LinkPrimary target='_blank' href='https://portal.astar.network/#/dapp-staking/discover'>dApp Staking on Astar</LinkPrimary>{' '}
+            <LinkPrimary
+              target="_blank"
+              href="https://portal.astar.network/#/dapp-staking/discover">
+              dApp Staking on Astar
+            </LinkPrimary>{' '}
             and you need to be registered as
-            <LinkPrimary href='https://astarpass.astar.network/#/register' target='_blank'> AstarPass </LinkPrimary>
-            holder. Otherwise you can still mint 1 NFT but you need to pay.
+            <LinkPrimary
+              href="https://astarpass.astar.network/#/register"
+              target="_blank">
+              {' '}
+              AstarPass{' '}
+            </LinkPrimary>
+            holder. Otherwise, you can still mint 1 NFT but you need to pay.
             Please make sure you are connected to Astar Network and the correct
             address. Please note: Once you make the purchase, you cannot undo
-            this acton
+            this action.
           </TextDescription>
         </RowDescription>
         <RowDescription>

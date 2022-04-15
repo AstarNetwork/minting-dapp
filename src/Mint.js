@@ -66,7 +66,7 @@ export const ResponsiveWrapper = styled.div`
   justify-content: stretched;
   align-items: stretched;
   @media (min-width: 767px) {
-    width: 374px;
+    width: 390px;
     flex-direction: row;
   }
 `;
@@ -138,7 +138,7 @@ const Mint = () => {
 
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
-    
+
     blockchain.smartContract.methods
       .mint(1)
       .send({
@@ -299,7 +299,8 @@ const Mint = () => {
                 fontWeight: 400,
                 marginBottom: 10,
               }}>
-              1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST} {CONFIG.NETWORK.SYMBOL} (Excluding gas fees.)
+              1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{' '}
+              {CONFIG.NETWORK.SYMBOL} (Excluding gas fees.)
             </s.TextTitle>
             {/* <s.SpacerXSmall /> */}
             {/* <s.TextDescription
@@ -382,16 +383,21 @@ const Mint = () => {
                 </s.Container> */}
                 {/* <s.SpacerSmall /> */}
                 <s.Container ai={'center'} jc={'center'} fd={'row'}>
-                  {parseInt(data.balance) ?
+                  {parseInt(data.balance) ? (
                     <s.TextDescription
                       style={{
                         textAlign: 'center',
                         color: 'var(--accent-text)',
-                      }}
-                    >
-                      WOW, {data.balance} {CONFIG.NFT_NAME} is yours! go visit <LinkPrimary href="https://tofunft.com/astar" target="_blank">{CONFIG.MARKETPLACE}</LinkPrimary> to view it.
+                      }}>
+                      WOW, {data.balance} {CONFIG.NFT_NAME} is yours! Visit{' '}
+                      <LinkPrimary
+                        href="https://tofunft.com/astar"
+                        target="_blank">
+                        {CONFIG.MARKETPLACE}
+                      </LinkPrimary>{' '}
+                      to view it.
                     </s.TextDescription>
-                   : claimingNft ? (
+                  ) : claimingNft ? (
                     <div>
                       <s.TextDescription
                         style={{
