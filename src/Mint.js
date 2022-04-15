@@ -113,7 +113,6 @@ const Mint = () => {
 
   // Todo: Update price and ticker
   const price = 500;
-  const ticker = 'XXX';
   const isInvalidConnection =
     blockchain.account === '' || blockchain.smartContract === null;
 
@@ -126,12 +125,19 @@ const Mint = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let gasPrice = CONFIG.GAS_PRICE;
+    const symbol = CONFIG.SYMBOL;
     let totalCostWei = new BN(cost.toString()).muln(mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
     console.log('Cost: ', totalCostWei, cost, mintAmount);
     console.log('Gas limit: ', totalGasLimit);
+    console.log('Mint amount', mintAmount)
+    console.log('Gas price: ', gasPrice);
+    console.log('totalGasLimit: ', totalGasLimit);
+
+
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
+    
     blockchain.smartContract.methods
       .mint(mintAmount)
       .send({
@@ -306,7 +312,7 @@ const Mint = () => {
                     fontWeight: 400,
                     marginBottom: 10,
                   }}>
-                  1 {ticker} costs {price} ASTR (Excluding gas fees.)
+                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST} {CONFIG.NETWORK.SYMBOL} (Excluding gas fees.)
                 </s.TextTitle>
               </>
             )}
