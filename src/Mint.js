@@ -300,7 +300,7 @@ const Mint = () => {
                 marginBottom: 10,
               }}>
               1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{' '}
-              {CONFIG.NETWORK.SYMBOL} (Excluding gas fees)
+              {CONFIG.NETWORK.SYMBOL} (Excluding gas fees.)
             </s.TextTitle>
             {/* <s.SpacerXSmall /> */}
             {/* <s.TextDescription
@@ -389,7 +389,7 @@ const Mint = () => {
                         textAlign: 'center',
                         color: 'var(--accent-text)',
                       }}>
-                      WOW, {data.balance} {CONFIG.NFT_NAME} is yours! go visit{' '}
+                      WOW, {data.balance} {CONFIG.NFT_NAME} is yours! Visit{' '}
                       <LinkPrimary
                         href="https://tofunft.com/astar"
                         target="_blank">
