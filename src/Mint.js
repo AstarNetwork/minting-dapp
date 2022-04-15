@@ -87,7 +87,6 @@ const Mint = () => {
   const [claimingNft, setClaimingNft] = useState(false);
   // const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
   const [feedback, setFeedback] = useState('');
-  const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: '',
     SCAN_LINK: '',
@@ -126,26 +125,27 @@ const Mint = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let gasPrice = CONFIG.GAS_PRICE;
     const symbol = CONFIG.SYMBOL;
-    let totalCostWei = new BN(cost.toString()).muln(mintAmount);
-    let totalGasLimit = String(gasLimit * mintAmount);
-    console.log('Cost: ', totalCostWei, cost, mintAmount);
+    let totalCostWei = cost;
+    let totalGasLimit = String(gasLimit);
+    let value = data.isPassHolder ? 0 : totalCostWei;
+    console.log('Cost: ', totalCostWei, cost);
     console.log('Gas limit: ', totalGasLimit);
-    console.log('Mint amount', mintAmount)
     console.log('Gas price: ', gasPrice);
     console.log('totalGasLimit: ', totalGasLimit);
+    console.log('value: ', value);
     console.log('data', data);
 
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     
     blockchain.smartContract.methods
-      .mint(mintAmount)
+      .mint(1)
       .send({
         gasLimit: String(totalGasLimit),
         gasPrice: String(gasPrice),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-        value: data.isPassHolder ? 0 : totalCostWei,
+        value: String(value),
       })
       .once('error', (err) => {
         console.log(err);
@@ -154,28 +154,12 @@ const Mint = () => {
       })
       .then((receipt) => {
         console.log(receipt);
-        setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit ${CONFIG.MARKETPLACE} to view it.`
-        );
+        // setFeedback(
+        //   `WOW, the ${CONFIG.NFT_NAME} is yours! go visit ${CONFIG.MARKETPLACE} to view it.`
+        // );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
       });
-  };
-
-  const decrementMintAmount = () => {
-    let newMintAmount = mintAmount - 1;
-    if (newMintAmount < 1) {
-      newMintAmount = 1;
-    }
-    setMintAmount(newMintAmount);
-  };
-
-  const incrementMintAmount = () => {
-    let newMintAmount = mintAmount + 1;
-    if (newMintAmount > MAX_MINT_AMOUNT) {
-      newMintAmount = MAX_MINT_AMOUNT;
-    }
-    setMintAmount(newMintAmount);
   };
 
   const getData = () => {
@@ -397,7 +381,16 @@ const Mint = () => {
                 </s.Container> */}
                 {/* <s.SpacerSmall /> */}
                 <s.Container ai={'center'} jc={'center'} fd={'row'}>
-                  {claimingNft ? (
+                  {parseInt(data.balance) ?
+                    <s.TextDescription
+                      style={{
+                        textAlign: 'center',
+                        color: 'var(--accent-text)',
+                      }}
+                    >
+                      WOW, {data.balance} {CONFIG.NFT_NAME} is yours! go visit {CONFIG.MARKETPLACE} to view it.
+                    </s.TextDescription>
+                   : claimingNft ? (
                     <div>
                       <s.TextDescription
                         style={{

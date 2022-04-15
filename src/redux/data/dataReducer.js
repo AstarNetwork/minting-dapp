@@ -1,4 +1,5 @@
 const initialState = {
+  balance: 0,
   loading: false,
   totalSupply: 0,
   isPassHolder: false,
@@ -22,6 +23,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        balance: action.payload.balance,
         totalSupply: action.payload.totalSupply,
         isPassHolder: action.payload.isPassHolder,
         stakerStatus: action.payload.stakerStatus,

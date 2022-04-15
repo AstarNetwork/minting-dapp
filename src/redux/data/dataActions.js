@@ -36,10 +36,20 @@ export const fetchData = () => {
       //   .blockchain.smartContract.methods.cost()
       //   .call();
 
+      let balance = 0;
+
+      if (store.getState().blockchain.account) {
+        balance = await store
+          .getState()
+          .blockchain.smartContract.methods.balanceOf(store.getState().blockchain.account)
+          .call();
+      }
+
       const { stakerStatus, isRegistered } = await passHolder(store.getState().blockchain.account);
 
       dispatch(
         fetchDataSuccess({
+          balance,
           totalSupply,
           stakerStatus,
           isRegistered,

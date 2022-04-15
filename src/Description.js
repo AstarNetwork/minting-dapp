@@ -35,8 +35,7 @@ const Description = () => {
         <RowDescription>
           <TextDescription>
             Please make sure you are connected to Astar Network and the correct
-            address. Please note: Once you make the purchase, you cannot undo
-            this acton
+            address.
           </TextDescription>
         </RowDescription>
       </div>
