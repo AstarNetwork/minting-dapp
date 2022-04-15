@@ -299,7 +299,7 @@ const Mint = () => {
                 fontWeight: 400,
                 marginBottom: 10,
               }}>
-              1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{' '}
+              1 {CONFIG.SYMBOL} costs {data.isPassHolder ? '0' : CONFIG.DISPLAY_COST}{' '}
               {CONFIG.NETWORK.SYMBOL} (Excluding gas fees.)
             </s.TextTitle>
             {/* <s.SpacerXSmall /> */}
