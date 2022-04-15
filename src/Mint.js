@@ -7,6 +7,7 @@ import * as s from './styles/globalStyles';
 import styled from 'styled-components';
 import BN from 'bn.js';
 import logo from './assets/astar-pass.svg';
+import { LinkPrimary } from './styles/Description.styled';
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -388,8 +389,13 @@ const Mint = () => {
                         textAlign: 'center',
                         color: 'var(--accent-text)',
                       }}>
-                      WOW, {data.balance} {CONFIG.NFT_NAME} is yours! Visit{' '}
-                      {CONFIG.MARKETPLACE} to view it.
+                      WOW, {data.balance} {CONFIG.NFT_NAME} is yours! go visit{' '}
+                      <LinkPrimary
+                        href="https://tofunft.com/astar"
+                        target="_blank">
+                        {CONFIG.MARKETPLACE}
+                      </LinkPrimary>{' '}
+                      to view it.
                     </s.TextDescription>
                   ) : claimingNft ? (
                     <div>
