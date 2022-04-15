@@ -1459,7 +1459,7 @@ contract Astarnaut is ERC721Enumerable, Ownable {
     bool public paused = true;
     bool public revealed = true;
     string public notRevealedUri;
-    AstarBase public ASTARBASE = AstarBase(0xF183f51D3E8dfb2513c15B046F848D4a68bd3F5D);
+    AstarBase public ASTARBASE = AstarBase(0x8E2fa5A4D4e4f0581B69aF2f8F2Ef2CF205aE8F0);
 
     constructor(
         string memory _name,
