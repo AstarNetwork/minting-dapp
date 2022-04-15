@@ -18,7 +18,7 @@
   "GAS_LIMIT": "300000",
   "GAS_PRICE": "10000000000",
   "MARKETPLACE": "TofuNFT",
-  "MARKETPLACE_LINK": "https://tofunft.com/collection/astar-pass/items",
+  "MARKETPLACE_LINK": "https://tofunft.com/discover/items?contracts=22558&network=592",
   "SHOW_BACKGROUND": true,
   "PASS_NAME": "AstarPass",
   "PASS_LINK": "https://astarpass.astar.network/",

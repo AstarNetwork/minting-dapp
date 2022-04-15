@@ -33,8 +33,13 @@ export const RowDescription = styled.div`
   line-height: 21px;
 `;
 
-export const TextDescriptionPrimary = styled.span`
+export const LinkPrimary = styled.a`
   color: #05b6fd;
   font-weight: 800;
   font-size: 14px;
+  text-decoration: none;
+
+  :hover {
+    text-decoration: underline;
+  }
 `;
