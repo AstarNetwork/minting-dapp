@@ -7,7 +7,7 @@
     "SYMBOL": "ASTR",
     "ID": 592,
     "DECIMALS": 18,
-    "RPC_URL": "https://rpc.astar.network:8545",
+    "RPC_URL": "https://evm.astar.network",
     "BLOCK_EXPLORER_URL": "https://blockscout.com/astar"
   },
   "NFT_NAME": "Astarnaut",
