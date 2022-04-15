@@ -24,12 +24,12 @@ const Description = () => {
               {' '}
               dApp Staking on Astar{' '}
             </TextDescriptionPrimary>
-            and you need to be regstered as
+            and you need to be registered as
             <TextDescriptionPrimary> AstarPass </TextDescriptionPrimary>
-            holder. Otherwise you can still mint 1 NFT but you need to pay.
+            holder. Otherwise, you can still mint 1 NFT but you need to pay.
             Please make sure you are connected to Astar Network and the correct
             address. Please note: Once you make the purchase, you cannot undo
-            this acton
+            this action.
           </TextDescription>
         </RowDescription>
         <RowDescription>
