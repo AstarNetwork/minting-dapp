@@ -288,6 +288,7 @@ const Mint = () => {
                   style={{
                     height: 42,
                     width: 230,
+                    marginBottom: 10,
                   }}
                 />
               </>
